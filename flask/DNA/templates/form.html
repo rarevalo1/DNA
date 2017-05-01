@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Pinfluencer Tapshop Config Creation</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+<body>
+
+<h1 class="mainHeader">Create Tapshop Configurations</h1>
+
+<div class="form-style-5">
+<form action="http://localhost:5000/result" method="POST">
+<fieldset>
+<legend><span class="number"></span> Brand Info</legend>
+<input type="text" name="field1" placeholder="Site *">
+<input type="text" name="field2" placeholder="Header *">
+<input type="text" name="field3" placeholder="Feed Source *">
+<input type="text" name="field4" placeholder="Feed Path *">
+</fieldset>
+<!--<fieldset>-->
+<!--<legend><span class="number">2</span> Additional Info</legend>-->
+<!--<textarea name="field3" placeholder="About Your School"></textarea>-->
+<!--</fieldset>-->
+<input type="submit" value="CREATE" />
+</form>
+</div>
+
+</body>
+</html>
