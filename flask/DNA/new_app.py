@@ -33,5 +33,3 @@ def create():
         fpath = request.form['field4']
         cc.creation(site, header, feed_source, fpath)
         return render_template('result.html', site=site, header=header, feed_source=feed_source, fpath=fpath)
-
-
