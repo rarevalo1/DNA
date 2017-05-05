@@ -1,9 +1,10 @@
+import importlib.util
+
 from flask import Flask
 from flask import render_template
-from flask import send_from_directory
-from flask import url_for
 from flask import request
-import importlib.util
+
+import testingtheimport
 
 spec = importlib.util.spec_from_file_location("config_creation", '/Users/rarevalo/Developer/Python/config_creation.py')
 cc = importlib.util.module_from_spec(spec)
@@ -18,7 +19,9 @@ def dna():
 
 @app.route('/headers')
 def headers():
+    print(testingtheimport.new_func())
     return "This is where to create custom headers"
+
 
 @app.route('/conf')
 def config_creation_form():
