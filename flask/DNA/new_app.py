@@ -1,12 +1,9 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from flask import sessions
-from flask import redirect
-from requests_oauthlib import oauth2_session as auth2
+from requests_oauthlib import oauth2_session as oauth
 import config_creation as cc
 import login_auth as la
-
 
 #app configs
 app = Flask(__name__)
@@ -16,6 +13,7 @@ app.debug=True
 @app.route('/login')
 def login():
     return "This is the login page"
+    authenticate = oauth.OAuth2Session(la.Auth.CLIENT_ID, la.Auth.REDIRECT_URI, la.Auth.SCOPE)
 
 @app.route('/home')
 def dna():
