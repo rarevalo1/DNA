@@ -12,8 +12,7 @@ app.debug=True
 # the login page in order to access the app
 @app.route('/login')
 def login():
-    return "This is the login page"
-    authenticate = oauth.OAuth2Session(la.Auth.CLIENT_ID, la.Auth.REDIRECT_URI, la.Auth.SCOPE)
+    return render_template('login.html')
 
 @app.route('/home')
 def dna():
