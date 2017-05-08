@@ -18,11 +18,6 @@ import_script_path = root_folder + '/scripts/product_feeds/watchdog/scripts'
 # changes to path were file needs to be created
 os.chdir(file_creation_path)
 
-# Inputs arguments
-# site = str(sys.argv[1]).lower()
-# header = str(sys.argv[2]).lower()
-# feed_source = str(sys.argv[3]).lower()
-# fpath = str(sys.argv[4])
 
 def creation(site, header, feed_source, fpath):
 

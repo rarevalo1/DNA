@@ -1,19 +1,23 @@
-import importlib.util
-
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import sessions
+from flask import redirect
+from requests_oauthlib import oauth2_session as auth2
+import config_creation as cc
+import login_auth as la
 
-import testingtheimport
 
-spec = importlib.util.spec_from_file_location("config_creation", '/Users/rarevalo/Developer/Python/config_creation.py')
-cc = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(cc)
-
+#app configs
 app = Flask(__name__)
 app.debug=True
 
-@app.route('/')
+# the login page in order to access the app
+@app.route('/login')
+def login():
+    return "This is the login page"
+
+@app.route('/home')
 def dna():
     return "This is the front end for DNA."
 
@@ -21,7 +25,6 @@ def dna():
 def headers():
     print(testingtheimport.new_func())
     return "This is where to create custom headers"
-
 
 @app.route('/conf')
 def config_creation_form():
