@@ -12,7 +12,7 @@ app.debug=True
 # the login page in order to access the app
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html', button_auth=la.auth_uri)
 
 @app.route('/home')
 def dna():
