@@ -37,11 +37,7 @@ flow = client.OAuth2WebServerFlow(Auth.CLIENT_ID, Auth.CLIENT_SECRET, Auth.SCOPE
 auth_uri = flow.step1_get_authorize_url()
 print(auth_uri)
 
-req = urllib.request.Request(auth_uri)
-# print(req.)
-response = urllib.request.urlopen(req)
-the_page = response.read().decode('utf-8')
-print(the_page)
-# credentials = flow.step2_exchange(code)
-# print(credentials)
+def greatExchange(code):
+    credentials = flow.step2_exchange(code)
+
 

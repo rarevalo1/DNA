@@ -4,19 +4,27 @@ from flask import request
 from requests_oauthlib import oauth2_session as oauth
 import config_creation as cc
 import login_auth as la
-
+import requests
+from urllib.parse import urlparse
 #app configs
 app = Flask(__name__)
 app.debug=True
 
 # the login page in order to access the app
+
+
 @app.route('/login')
 def login():
     return render_template('login.html', button_auth=la.auth_uri)
 
+
 @app.route('/oauth2callback')
 def callback():
     return render_template('oauth2callback.html')
+    # url = requests.Response.url
+    print(urlparse(url))
+
+
 
 @app.route('/home')
 def dna():
