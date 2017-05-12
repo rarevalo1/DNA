@@ -14,6 +14,10 @@ app.debug=True
 def login():
     return render_template('login.html', button_auth=la.auth_uri)
 
+@app.route('/oauth2callback')
+def callback():
+    return render_template('oauth2callback.html')
+
 @app.route('/home')
 def dna():
     return "This is the front end for DNA."
