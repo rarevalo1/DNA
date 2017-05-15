@@ -1,6 +1,7 @@
 import os
 from oauth2client import client
-import urllib.request
+
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Auth:
@@ -38,6 +39,6 @@ auth_uri = flow.step1_get_authorize_url()
 print(auth_uri)
 
 def greatExchange(code):
-    credentials = flow.step2_exchange(code)
+    flow.step2_exchange(code)
 
 

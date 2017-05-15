@@ -1,11 +1,9 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from requests_oauthlib import oauth2_session as oauth
 import config_creation as cc
 import login_auth as la
-import requests
-from urllib.parse import urlparse
+
 #app configs
 app = Flask(__name__)
 app.debug=True
@@ -20,10 +18,12 @@ def login():
 
 @app.route('/oauth2callback')
 def callback():
+    print("wtf!!!")
+    print(request.url)
+    code = request.url.split('=')[1]
+    print(code)
+    print(la.greatExchange(code))
     return render_template('oauth2callback.html')
-    # url = requests.Response.url
-    print(urlparse(url))
-
 
 
 @app.route('/home')
@@ -32,7 +32,6 @@ def dna():
 
 @app.route('/headers')
 def headers():
-    print(testingtheimport.new_func())
     return "This is where to create custom headers"
 
 @app.route('/conf')
@@ -48,3 +47,5 @@ def create():
         fpath = request.form['field4']
         cc.creation(site, header, feed_source, fpath)
         return render_template('result.html', site=site, header=header, feed_source=feed_source, fpath=fpath)
+
+
