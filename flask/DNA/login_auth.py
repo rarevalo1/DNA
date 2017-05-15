@@ -35,9 +35,8 @@ config = {
 }
 
 flow = client.OAuth2WebServerFlow(Auth.CLIENT_ID, Auth.CLIENT_SECRET, Auth.SCOPE, redirect_uri=Auth.REDIRECT_URI)
-auth_uri = flow.step1_get_authorize_url()
-print(auth_uri)
 
+auth_uri = flow.step1_get_authorize_url()
 def greatExchange(code):
     flow.step2_exchange(code)
 

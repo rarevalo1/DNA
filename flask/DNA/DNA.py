@@ -18,11 +18,12 @@ def login():
 
 @app.route('/oauth2callback')
 def callback():
-    print("wtf!!!")
+    import ipdb
+    ipdb.set_trace()
     print(request.url)
     code = request.url.split('=')[1]
-    print(code)
-    print(la.greatExchange(code))
+    la.greatExchange(code)
+
     return render_template('oauth2callback.html')
 
 
@@ -40,7 +41,7 @@ def config_creation_form():
 
 @app.route('/result', methods=['POST', 'GET'])
 def create():
-    if request.method=='POST':
+    if request.method == 'POST':
         site = request.form['field1']
         header = request.form['field2']
         feed_source = request.form['field3']
