@@ -50,3 +50,5 @@ def create():
         return render_template('result.html', site=site, header=header, feed_source=feed_source, fpath=fpath)
 
 
+if __name__ == "__main__":
+    app.run()

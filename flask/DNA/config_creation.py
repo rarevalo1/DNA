@@ -103,5 +103,3 @@ def creation(site, header, feed_source, fpath):
     # Elastic search result opens in webbrowser
     elastic_search_result = webbrowser.open(
         'http://192.168.87.111:9200/' + site + '_alias/_search?pretty')
-
-
