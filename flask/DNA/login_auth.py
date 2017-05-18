@@ -12,6 +12,7 @@ class Auth:
     TOKEN_URI = 'https://accounts.google.com/o/oauth2/token'
     USER_INFO = 'https://www.googleapis.com/userinfo/v2/me'
     SCOPE = 'https://www.googleapis.com/auth/userinfo.email'
+    ACCESS = 'offline'
 
 
 class Config:
@@ -33,11 +34,11 @@ config = {
     "prod": ProdConfig,
     "default": DevConfig
 }
-
+credentials = client.OAuth2Credentials
 flow = client.OAuth2WebServerFlow(Auth.CLIENT_ID, Auth.CLIENT_SECRET, Auth.SCOPE, redirect_uri=Auth.REDIRECT_URI)
 
 auth_uri = flow.step1_get_authorize_url()
 def greatExchange(code):
-    flow.step2_exchange(code)
+    return flow.step2_exchange(code)
 
 

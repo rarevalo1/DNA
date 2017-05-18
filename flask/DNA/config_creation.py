@@ -15,11 +15,11 @@ assert not repo.bare
 file_creation_path = root_folder + '/scripts/product_feeds/watchdog/scripts/configs/brands'
 import_script_path = root_folder + '/scripts/product_feeds/watchdog/scripts'
 
-# changes to path were file needs to be created
-os.chdir(file_creation_path)
-
 
 def creation(site, header, feed_source, fpath):
+
+    # changes to path were file needs to be created
+    os.chdir(file_creation_path)
 
     # creates new branch
     git = repo.git
