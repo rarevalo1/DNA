@@ -125,3 +125,22 @@ h1{
     text-decoration: none;
     font-family: 'Helvetica', sans-serif;
 }
+
+.mainNav ul {
+    float: left;
+    padding-top:10px;
+}
+.navigation_pages a {
+    color: white;
+}
+
+.navigation_pages a:hover {
+    text-decoration: none;
+}
+ .navbar {
+    background: #1abc9c;
+}
+
+ nav {
+     margin-top: 10px;
+ }

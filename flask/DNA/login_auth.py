@@ -13,6 +13,7 @@ class Auth:
     USER_INFO = 'https://www.googleapis.com/userinfo/v2/me'
     SCOPE = 'https://www.googleapis.com/auth/userinfo.email'
     ACCESS = 'offline'
+    HD= "olapic.com"
 
 
 class Config:

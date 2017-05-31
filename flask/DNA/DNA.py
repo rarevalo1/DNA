@@ -19,9 +19,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route('/login')
 def login():
-
     return render_template('login.html', button_auth=la.auth_uri)
-
 
 @app.route('/oauth2callback')
 def callback():
@@ -29,25 +27,34 @@ def callback():
     code = flask.request.args.get('code')
     credentials = la.greatExchange(code)
     flask.session['credentials'] = credentials.to_json()
-    return render_template('oauth2callback.html')
+    return flask.redirect(flask.url_for('homepage'))
 
 @app.route('/home')
 def dna():
+    # import ipdb;ipdb.set_trace()
     if 'credentials' not in flask.session:
         return flask.redirect(flask.url_for('login'))
-    la.credentials.from_json(flask.session['credentials'])
+    credentials = la.credentials.from_json(flask.session['credentials'])
     if credentials.access_token_expired:
         return flask.redirect(flask.url_for('login'))
+    # elif:
+    #     auth_code = flask.request.args.get('code')
+    #     credentials = flow.step2_exchange(auth_code)
+    #     flask.session['credentials'] = credentials.to_json()
+    #     return flask.redirect(flask.url_for('index'))
     # else:
     #     http_auth = credentials.authorize(httplib2.Http())
     #     drive = discovery.build('drive', 'v2', http_auth)
     #     files = drive.files().list().execute()
     #     return json.dumps(files)
-    return "This is the front end for DNA."
 
 @app.route('/headers')
 def headers():
     return "This is where to create custom headers"
+
+@app.route('/main')
+def homepage():
+    return render_template("main.html", my_nav=["Home", "Configuration", "Headers", "Login"])
 
 @app.route('/conf')
 def config_creation_form():
