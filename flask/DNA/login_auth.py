@@ -5,8 +5,8 @@ from oauth2client import client
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Auth:
-    CLIENT_ID = '168948954860-sm4gvd8tpgrqu7hrcfshk75vpkupktvd.apps.googleusercontent.com'
-    CLIENT_SECRET = '6a8nDtj8tjr4Ioop9jIwSs0t'
+    CLIENT_ID = 'CLIENT_ID'
+    CLIENT_SECRET = 'CLIENT_SECRET'
     REDIRECT_URI = 'http://localhost:5000/oauth2callback'
     AUTH_URI = 'https://accounts.google.com/o/oauth2/auth'
     TOKEN_URI = 'https://accounts.google.com/o/oauth2/token'
